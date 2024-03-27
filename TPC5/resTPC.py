@@ -1,3 +1,4 @@
+#!/usr/
 # pip install -U spacy
 # python -m spacy download en_core_web_sm
 
@@ -6,18 +7,22 @@ NAME
    resTPC - writes down the words present in a file along with their pos_ and lemma_
 
 SYNOPSIS
-   python3 restTPC.py input_file
+   python3 restTPC.py [input_file]
+   python3 -i resTPC.py [input_file] -> for spacy
 
 DESCRIPTION
    This script gives out a table like output after processing the input_file. 
-   The columns are: word, POS and Normal Form. It uses SpaCy for NLP tasks, as well as a matcher.
-   The matcher is used to ID patterns, in this particular case, expressions like "Ponte de Lima".
+   The columns are: word, POS and Lemma. It uses SpaCy for NLP tasks.
+   Added some new columns:
+            1) Dependency Tree
+            2) Children
+            3) Morph
+   Could also add the ancestors and make present the tree using displacy.
 '''
 
 import spacy
-from spacy.matcher import Matcher
+#from spacy import displacy #Para ver em página web a árvore
 import pandas as pd
-import json
 import sys
 
 # Load Portuguese language model
@@ -32,44 +37,37 @@ with open(file_path, "r", encoding="utf-8") as file:
 
 # Process text
 doc = nlp(text)
+#displacy.serve(doc,style='dep')
 
-# Load patterns from JSON file
-with open("patterns.json", "r") as file:
-    patterns = json.load(file)
-
-# Initialize matcher
-matcher = Matcher(nlp.vocab)
-matcher.add("Named_Entity", patterns)
-
-# Extract words, POS, and normal form (word or conjugation)
+# Extract words, POS, and lemma, we added the dependencies tree and the children
 data = []
 with doc.retokenize() as retokenizer:
-    for match_id, start, end in matcher(doc):
-        span = doc[start:end]
-        retokenizer.merge(span)
-for token in doc:
-    if token.ent_type_:
-        #pos = "Localidade"  # or any other POS you prefer for named entities
-        pos = token.pos_
-        normal_form = token.text  # Keep the entity intact
-        data.append([token.text, pos, normal_form])
-    else:
-        pos = token.pos_
-        if pos == "VERB":
-            normal_form = token.lemma_
+    for entity in doc.ents:
+        retokenizer.merge(entity)
+    
+#Remove SPACE and other confusing entities    
+for sentence in doc.sents:
+    for token in sentence:
+        if token.is_space:
+            continue
+        if token.pos_ == 'PROPN':
+            data.append([token.text, token.pos_ , token.ent_type_, token.dep_, list(token.children)]) 
+                        ##, token.morph])
         else:
-            normal_form = token.text
-        data.append([token.text, pos, normal_form])
+            data.append([token.text, token.pos_, token.lemma_, token.dep_, list(token.children)])
+            ##, token.morph])
+
 
 # Create DataFrame
-df = pd.DataFrame(data, columns=["Word", "POS", "Normal Form"])
+df = pd.DataFrame(data, columns=["Word", "POS","Lemma", "Dep", "Children"])
+##, "Morph"])
 
 # Display DataFrame
 print(df)
-df.to_json("dataframe_output.json", orient="records") #for a json file output
-df.to_csv("dataframe_output.csv", index=False) #for a table like output
 
-# Optionally, you can also save to other formats like Excel, JSON, or pickle
+# Optionally, you can also save to other formats
+# df.to_json("dataframe_output.json", orient="records") #for a json file output
+df.to_csv("dataframe_output.csv", index=False) #for a table like output
 # df.to_excel("dataframe_output.xlsx", index=False)
 # df.to_json("dataframe_output.json", orient="records")
 # df.to_pickle("dataframe_output.pkl")
