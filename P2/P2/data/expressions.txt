@@ -1,0 +1,43 @@
+cinco estrelas;POS
+alegria contagiante;POS
+sorriso radiante;POS
+amor incondicional;POS
+paz interior;POS
+harmonia celestial;POS
+felicidade plena;POS
+brilho nos olhos;POS
+simplicidade encantadora;POS
+momento mágico;POS
+beleza natural;POS
+cumplicidade infinita;POS
+riqueza de espírito;POS
+doçura no olhar;POS
+encanto sereno;POS
+encantamento profundo;POS
+carinho sincero;POS
+respeito mútuo;POS
+gentileza genuína;POS
+serenidade eterna;POS
+esperança renovada;POS
+tristeza profunda;NEG
+solidão avassaladora;NEG
+desespero absoluto;NEG
+angústia insuportável;NEG
+amargura extrema;NEG
+rancor profundo;NEG
+desilusão devastadora;NEG
+dor lancinante;NEG
+frustração imensa;NEG
+raiva incontrolável;NEG
+insegurança crônica;NEG
+desânimo total;NEG
+medo paralisante;NEG
+desesperança absoluta;NEG
+mágoa profunda;NEG
+descontentamento constante;NEG
+desgosto insuportável;NEG
+arrependimento doloroso;NEG
+perda irreparável;NEG
+desprezo absoluto;NEG
+deixa muito a desejar;NEG
+os meus pensames;NEG

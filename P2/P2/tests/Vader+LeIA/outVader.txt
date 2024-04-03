@@ -1,0 +1,102 @@
+# Analysis #1
+Negative: 0.059
+Neutral: 0.856
+Positive: 0.085
+Compound: 0.9995
+
+# Analysis #2
+Negative: 0.082
+Neutral: 0.842
+Positive: 0.076
+Compound: -0.9862
+
+# Analysis #3
+Negative: 0.069
+Neutral: 0.86
+Positive: 0.071
+Compound: 0.8985
+
+# Analysis #4
+Negative: 0.094
+Neutral: 0.823
+Positive: 0.082
+Compound: -0.9964
+
+# Analysis #5
+Negative: 0.051
+Neutral: 0.859
+Positive: 0.09
+Compound: 0.9999
+
+# Analysis #6
+Negative: 0.045
+Neutral: 0.883
+Positive: 0.072
+Compound: 0.9998
+
+# Analysis #7
+Negative: 0.068
+Neutral: 0.833
+Positive: 0.098
+Compound: 0.9997
+
+# Analysis #8
+Negative: 0.069
+Neutral: 0.85
+Positive: 0.082
+Compound: 0.9961
+
+# Analysis #9
+Negative: 0.067
+Neutral: 0.867
+Positive: 0.066
+Compound: 0.9282
+
+# Analysis #10
+Negative: 0.065
+Neutral: 0.84
+Positive: 0.095
+Compound: 0.9996
+
+# Analysis #11
+Negative: 0.074
+Neutral: 0.842
+Positive: 0.085
+Compound: 0.9965
+
+# Analysis #12
+Negative: 0.052
+Neutral: 0.872
+Positive: 0.076
+Compound: 0.9996
+
+# Analysis #13
+Negative: 0.068
+Neutral: 0.843
+Positive: 0.089
+Compound: 0.9987
+
+# Analysis #14
+Negative: 0.057
+Neutral: 0.86
+Positive: 0.083
+Compound: 0.9993
+
+# Analysis #15
+Negative: 0.1
+Neutral: 0.83
+Positive: 0.07
+Compound: -0.9997
+
+# Analysis #16
+Negative: 0.064
+Neutral: 0.85
+Positive: 0.085
+Compound: 0.9996
+
+# Analysis #17
+Negative: 0.099
+Neutral: 0.784
+Positive: 0.117
+Compound: 0.9993
+
